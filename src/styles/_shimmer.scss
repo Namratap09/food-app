@@ -1,0 +1,11 @@
+.shimmer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.shimmer-card {
+        width: 250px;
+        height: 500px;
+        background: #ece8e8;
+    }
+}
