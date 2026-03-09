@@ -1,5 +1,5 @@
 export const logoURL =  
-"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5WoJHN7KvuP6ZN_5bp5UsrIQCNXH0pYjToQ&s";
+"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_260/portal/m/seo/Logos/Swiggy/Swiggy%20logo-2.png";
 
 export const CDNURL= "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 

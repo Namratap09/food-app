@@ -7,24 +7,27 @@ const RestoCard = (props) => {
     avgRating,
     cuisines,
     costForTwo,
-    cloudinaryImageId
+    cloudinaryImageId,
+    locality,
+    areaName
   } = cardData?.info
 
   return (
     <>
-      <img
-        className="res-logo"
-        src={CDNURL + cloudinaryImageId}
-        alt="Pizza Paradise"
-      />
+      <div className="res-img-container">
+        <img
+          className="res-logo"
+          src={CDNURL + cloudinaryImageId}
+          alt={name}
+        />
+      </div>
       <div className="res-details">
         <h3 className="res-name">{name}</h3>
         <div className="res-meta">
           <span className="rating">⭐ {avgRating}</span>
-          <span className="dot">•</span>
         </div>
         <p className="cuisines">{cuisines.join(", ")}</p>
-        <p className="location">MG Road, Central District</p>
+        <p className="location">{locality + "," + areaName}</p>
         <p className="cost">{costForTwo}</p>
       </div>
     </>
