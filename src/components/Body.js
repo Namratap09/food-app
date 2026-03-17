@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([])
   const [filteredRestoList, setFilteredRestoList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => { fetchData() }, []);
 
@@ -17,10 +18,10 @@ const Body = () => {
       RestoList = json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       setListOfRestaurants(RestoList)
 
-      let filteredRestos = RestoList.filter((restaurant) => restaurant.info.avgRating > 4.2 )
+      let filteredRestos = RestoList.filter((restaurant) => restaurant.info.avgRating > 4.2)
       console.log(filteredRestos, "filtered restos")
       setFilteredRestoList(filteredRestos)
-       console.log(filteredRestoList, "filtered restos via set")
+      console.log(filteredRestoList, "filtered restos via set")
 
     } catch (error) {
       console.error("error while fetching the data")
@@ -29,7 +30,18 @@ const Body = () => {
   return listOfRestaurants.length === 0 ? <Shimmer /> : (
     <main>
       <div className="res-container">
-        <input type="text" /><button>Search</button>
+        <input type="text" value={searchText} onChange={
+          (e) => {
+            setSearchText(e.target.value)
+          }} ></input>
+        <button onClick={() => {
+          let value = searchText;
+          const filteredRestoList = listOfRestaurants.filter((restaurant) => {
+            return restaurant?.info?.name.toLowerCase().includes(value.toLowerCase);
+          })
+          console.log(filteredRestoList)
+          setFilteredRestoList(filteredRestoList)
+          }}>Search</button>
         <div className="top-restos">
           <h3>Top Rated Restaurants</h3>
           {
