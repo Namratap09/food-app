@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RestoCard from "./RestoCard"
 import { restaurantsList } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([])
@@ -18,11 +19,10 @@ const Body = () => {
       RestoList = json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
       setListOfRestaurants(RestoList)
 
-      let filteredRestos = RestoList.filter((restaurant) => restaurant.info.avgRating > 4.2)
-      console.log(filteredRestos, "filtered restos")
+      let filteredRestos = RestoList.filter((restaurant) => {
+        return restaurant.info.avgRating > 4.2
+      })
       setFilteredRestoList(filteredRestos)
-      console.log(filteredRestoList, "filtered restos via set")
-
     } catch (error) {
       console.error("error while fetching the data")
     }
@@ -35,29 +35,31 @@ const Body = () => {
             setSearchText(e.target.value)
           }} ></input>
         <button onClick={() => {
-          let value = searchText;
+          let value = searchText.toLowerCase();
           const filteredRestoList = listOfRestaurants.filter((restaurant) => {
-            return restaurant?.info?.name.toLowerCase().includes(value.toLowerCase);
+            return restaurant?.info?.name.toLowerCase().includes(value);
           })
-          console.log(filteredRestoList)
           setFilteredRestoList(filteredRestoList)
-          }}>Search</button>
+        }}>Search</button>
         <div className="top-restos">
           <h3>Top Rated Restaurants</h3>
-          {
-            filteredRestoList.map(restaurant => (
-              <div key={restaurant.info.id} className="restoCard">
-                <RestoCard cardData={restaurant}></RestoCard>
-              </div>
+          {filteredRestoList.map(restaurant => (
+              <Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}>
+                <div key={restaurant.info.id} className="restoCard" id="filtered card">
+                  <RestoCard cardData={restaurant}></RestoCard>
+                </div>
+              </Link>
             ))
           }
         </div>
         <div className="dine-in-restos">
           <h3>Dine In Restaurants</h3>
           {listOfRestaurants.map(restaurant => (
-            <div key={restaurant.info.id} className="restoCard">
-              <RestoCard cardData={restaurant}></RestoCard>
-            </div>
+            <Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}>
+              <div className="restoCard">
+                <RestoCard cardData={restaurant}></RestoCard>
+              </div>
+            </Link>
           ))
           }
         </div>
