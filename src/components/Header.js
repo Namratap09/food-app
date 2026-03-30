@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { logoURL } from "../utils/constants"
 import { Link } from "react-router";
 import useShareStatus from "../customHooks/useShareStatus";
+import Shimmer from "./Shimmer";
 
 const Header = () => {
   const [btnName, setBtnName]= useState("Sign In")
   const status = useShareStatus()
-  console.log(status)
 
   return (
     <header className="navbar">
@@ -28,6 +28,9 @@ const Header = () => {
                 onClick={() => {
                 btnName === "Sign In" ? setBtnName('Sign Out') : setBtnName('Sign In')
               }}>{btnName}</button>
+            </li>
+            <li className="nav-item">
+              <Link to="/grocery">Grocery</Link>
             </li>
           </ul>
         </nav>
