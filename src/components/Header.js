@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { logoURL } from "../utils/constants"
 import { Link } from "react-router";
+import useShareStatus from "../customHooks/useShareStatus";
 
 const Header = () => {
   const [btnName, setBtnName]= useState("Sign In")
+  const status = useShareStatus()
+  console.log(status)
 
   return (
     <header className="navbar">
@@ -13,6 +16,7 @@ const Header = () => {
         </div>
         <nav className="nav-menu">
           <ul className="nav-list">
+            <li>{status}</li>
             <li className="nav-item"><Link to="/about">About Us</Link></li>
             <li className="nav-item">
               <Link to="#cart" className="cart-link">

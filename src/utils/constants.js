@@ -8,4 +8,4 @@ export const restoApi="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MEN
 
 export const restaurantsList = "https://namastedev.com/api/v1/listRestaurants"
 
-export const restoMenu = "https://namastedev.com/api/v1/listRestaurantMenu/"
+export const restoMenuApi = "https://namastedev.com/api/v1/listRestaurantMenu/"
