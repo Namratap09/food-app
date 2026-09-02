@@ -9,7 +9,8 @@ const RestoCard = (props) => {
     costForTwo,
     cloudinaryImageId,
     locality,
-    areaName
+    areaName,
+    promoted
   } = cardData?.info
 
   return (
@@ -32,6 +33,18 @@ const RestoCard = (props) => {
       </div>
     </>
   )
+}
+
+// named export
+export const WithPromotedLabel = (RestoCard) => {
+  return (props) => {
+    return (
+      <>
+        <label className="card-veg-label">Veg</label>
+        <RestoCard {...props} />
+      </>
+    )
+  }
 }
 
 export default RestoCard;
