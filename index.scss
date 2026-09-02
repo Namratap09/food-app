@@ -1,4 +1,7 @@
 @use "~/src/styles/header";
 @use "~/src/styles/shimmer";
 @use "~/src/styles/restoCard";
-@use "~/src/styles/body"
+@use "~/src/styles/body";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

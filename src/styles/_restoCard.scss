@@ -5,7 +5,7 @@ $text-sub: #696969;
 
 .restoCard {
   cursor: pointer;
-  
+
   .res-img-container {
     position: relative;
     width: 100%;
@@ -68,5 +68,13 @@ $text-sub: #696969;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+  }
+
+  .card-veg-label {
+    position: absolute;
+    z-index: 9;
+    padding: 12px 18px;
+    background: green;
+    border-radius: 0 20px 20px 0;
   }
 }

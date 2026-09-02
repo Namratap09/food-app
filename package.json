@@ -14,7 +14,14 @@
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.4",
-    "parcel": "^2.16.4"
+    "@tailwindcss/postcss": "^4.3.3",
+    "autoprefixer": "^10.5.4",
+    "css-loader": "^7.1.4",
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.26",
+    "postcss-loader": "^8.2.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.3.3"
   },
   "dependencies": {
     "react": "^19.2.4",

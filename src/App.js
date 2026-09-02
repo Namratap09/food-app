@@ -1,5 +1,6 @@
 import react, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
+// import './index.scss';
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
@@ -30,7 +31,7 @@ const appRouter = createBrowserRouter([
         element: <About />
       },
       {
-        path: "/restaurants/:resId",
+        path: "/api/v1/listRestaurantMenu/:resId",
         element: <RestaurantMenu />
       },
       {
